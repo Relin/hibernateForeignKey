@@ -1,0 +1,35 @@
+|---------------|             |----------------------|
+|    Autheur    |             |         Livre        |
+|---------------| 0-N         |----------------------|
+|id (serial)(pk)|<-----|      |id (serial)(pk)       |
+|name (varchar) |      |  0-1 |nom (varchar)         |
+|               |      |------|fk_auth (integer) (fk)|
+|---------------|             |                      |
+                              |----------------------|
+
+CREATE TABLE autheur(
+  autheur_id serial primary key,
+  name varchar(25)
+);
+
+CREATE TABLE livre (
+   livre_id serial primary key,
+   nom varchar(25),
+   fk_auth integer REFERENCES autheur (autheur_id)
+);
+
+insert into autheur (autheur_id, name) values(1,'Raph');
+
+insert into livre (livre_id, nom, fk_auth) values(1,'Roi',1);
+insert into livre (livre_id, nom, fk_auth) values(2,'Reine',1);
+
+Class Autheur:
+	private int id;
+	private String name;
+
+
+Class Livre:
+	private int id;
+	private String nom;
+	private int fk_auth;
+
