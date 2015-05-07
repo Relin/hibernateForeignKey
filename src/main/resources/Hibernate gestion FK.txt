@@ -1,3 +1,6 @@
+App1.java
+---------
+
 |---------------|             |----------------------|
 |    Autheur    |             |         Livre        |
 |---------------| 0-N         |----------------------|
@@ -24,12 +27,99 @@ insert into livre (livre_id, nom, fk_auth) values(1,'Roi',1);
 insert into livre (livre_id, nom, fk_auth) values(2,'Reine',1);
 
 Class Autheur:
-	private int id;
+	private int autheur_id;
 	private String name;
-
+	private Set<Livre> livres;
 
 Class Livre:
-	private int id;
+	private int livre_id;
 	private String nom;
 	private int fk_auth;
+
+-----------------------------------------------------------------------------------
+App2.java
+---------
+
+|---------------|             |----------------|
+|   Personne    |             |     Detail     |
+|---------------| 1-1     0-1 |----------------|
+|id (serial)(pk)|<-----|----->|id (serial)(pk) |
+|nom (varchar)  |             |info (varchar)  |
+|               |             |                |
+|---------------|             |----------------|
+
+
+CREATE TABLE personne(
+  personne_id serial primary key,
+  nom varchar(25)
+);
+
+CREATE TABLE detail (
+   detail_id integer not null,
+   info varchar(25),
+   foreign key (detail_id) REFERENCES personne (personne_id)
+);
+
+insert into personne (personne_id, nom) values(1,'Raph');
+
+insert into detail (detail_id, info) values(1,'Roi');
+
+Class Personne:
+	private int personne_id;
+	private String nom;
+	private Detail detail;
+
+
+Class Detail:
+	private int detail_id;
+	private String info;
+	private Personne personne;
+
+-----------------------------------------------------------------------------------
+App3.java
+---------
+
+|---------------|             |----------------|             |----------------|
+|     aaaa      |             |      aabb      |             |      bbbb      |
+|---------------| 0-1     1-1 |----------------|         0-1 |----------------|
+|id (serial)(pk)|<-----|------|aa_id (fk)      | 1-1  |----->|id (serial)(pk) |
+|nom (varchar)  |             |bb_id (fk)      |------|      |info (varchar)  |
+|               |             |                |             |                |
+|---------------|             |----------------|             |----------------|
+                |     0-N                            0-N     |
+                |<---------------------|-------------------->|
+
+
+CREATE TABLE aaaa(
+  aaaa_id serial primary key,
+  nom varchar(25)
+);
+
+CREATE TABLE bbbb (
+   bbbb_id serial primary key,
+   info varchar(25)
+);
+
+CREATE TABLE aabb (
+   aa_id integer not null,
+   bb_id integer not null,
+   foreign key (aa_id) REFERENCES aaaa (aaaa_id),
+   foreign key (bb_id) REFERENCES bbbb (bbbb_id)
+);
+
+insert into aaaa (aaaa_id, nom) values(1,'Raph');
+insert into bbbb (bbbb_id, info) values(1,'Polo');
+insert into aabb (aa_id, bb_id) values(1,1);
+
+
+Class Aaaa:
+	private int id;
+	private String name;
+	private Set<Bbbb> bbs;
+
+Class Bbbb:
+	private int id;
+	private String nom;
+	private Set<Aaaa> aas;
+
 

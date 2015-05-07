@@ -53,7 +53,7 @@ public class Autheur implements java.io.Serializable {
 		this.name = name;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "fk_auth")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "fk_auth") //mappedBy prend comme valeur le nom de parametre qui represente cette Autheur dans l'object Livre.
 	public Set<Livre> getLivres() {
 		return livres;
 	}

@@ -5,12 +5,16 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.password">XXXXXX</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/XXXXXX</property>
-        <property name="hibernate.connection.username">XXXXXX</property>
+        <property name="hibernate.connection.password">pololopo</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/eatown</property>
+        <property name="hibernate.connection.username">raphael</property>
         <property name="hibernate.default_schema">public</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-        <mapping class="be.relin.template_JEE.bean.Autheur"></mapping>
-        <mapping class="be.relin.template_JEE.bean.Livre" />
+        <mapping class="be.relin.hibernateForeignKey.bean.Autheur" />
+        <mapping class="be.relin.hibernateForeignKey.bean.Livre" />
+        <mapping class="be.relin.hibernateForeignKey.bean.Personne" />
+        <mapping class="be.relin.hibernateForeignKey.bean.Detail" />
+        <mapping class="be.relin.hibernateForeignKey.bean.Aaaa" />
+        <mapping class="be.relin.hibernateForeignKey.bean.Bbbb" />
     </session-factory>
 </hibernate-configuration>
