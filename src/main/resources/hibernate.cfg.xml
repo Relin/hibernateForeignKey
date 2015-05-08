@@ -16,5 +16,6 @@
         <mapping class="be.relin.hibernateForeignKey.bean.Detail" />
         <mapping class="be.relin.hibernateForeignKey.bean.Aaaa" />
         <mapping class="be.relin.hibernateForeignKey.bean.Bbbb" />
+        <mapping class="be.relin.hibernateForeignKey.bean.Bool" />
     </session-factory>
 </hibernate-configuration>
