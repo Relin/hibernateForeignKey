@@ -123,3 +123,61 @@ Class Bbbb:
 	private Set<Aaaa> aas;
 
 
+
+-----------------------------------------------------------------------------------
+AppTri.java
+-----------
+
+create table T1 (
+	t1_id serial primary key,
+	name varchar(25));
+	
+create table T2 (
+	t2_id serial primary key,
+	name varchar(25));
+	
+create table T3 (
+	t3_id serial primary key,
+	name varchar(25));
+
+create table t1_t2_t3(
+  t1_id integer NOT NULL,
+  t2_id integer NOT NULL,
+  t3_id integer NOT NULL,
+  foreign key (t1_id) REFERENCES t1 (t1_id),
+  foreign key (t2_id) REFERENCES t2 (t2_id),
+  foreign key (t3_id) REFERENCES t3 (t3_id)
+);
+
+
+
+-----------------------------------------------------------------------------------
+AppMix.java
+-----------
+
+create table A (
+	id serial primary key,
+	nom varchar(25)
+);
+	
+create table B (
+	id serial primary key,
+	info varchar(25)
+);
+	
+create table AB (
+	a_id integer,
+	b_id integer,
+	foreign key (a_id) REFERENCES a (id),
+	foreign key (b_id) REFERENCES b (id)
+);
+	
+create table C (
+	id serial primary key,
+	info varchar(25),
+	a integer REFERENCES a (id)
+);
+	
+	
+	
+	

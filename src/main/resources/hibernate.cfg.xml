@@ -5,9 +5,9 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.password">XXXXXX</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/XXXXXX</property>
-        <property name="hibernate.connection.username">XXXXXX</property>
+        <property name="hibernate.connection.password">XXXXX</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/XXXXX</property>
+        <property name="hibernate.connection.username">XXXXX</property>
         <property name="hibernate.default_schema">public</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <mapping class="be.relin.hibernateForeignKey.bean.Autheur" />
@@ -17,5 +17,11 @@
         <mapping class="be.relin.hibernateForeignKey.bean.Aaaa" />
         <mapping class="be.relin.hibernateForeignKey.bean.Bbbb" />
         <mapping class="be.relin.hibernateForeignKey.bean.Bool" />
+        <mapping class="be.relin.hibernateForeignKey.bean.T1" />
+        <mapping class="be.relin.hibernateForeignKey.bean.T2" />
+        <mapping class="be.relin.hibernateForeignKey.bean.T3" />
+        <mapping class="be.relin.hibernateForeignKey.bean.A" />
+        <mapping class="be.relin.hibernateForeignKey.bean.B" />
+        <mapping class="be.relin.hibernateForeignKey.bean.C" />
     </session-factory>
 </hibernate-configuration>
